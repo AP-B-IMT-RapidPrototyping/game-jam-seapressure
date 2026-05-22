@@ -23,16 +23,16 @@ Onze game heet Sea Pressure en het is een top-down shooter waar vanaf elke richt
 ### Game Flow
 
 Level begint: spawn alle objecten.
-Als alle vijanden gedood zijn: volgende level.
+Als alle vijanden dood zijn: transitie volgende level.
 Geraakt door vijanden of aanval: game over.
 
 ### Game Feel
 
-Player ziet waarschuwing voordat vijands schijnen/aanvallen.
+Player ziet waarschuwing voor vijands schijnen/aanvallen.
 
 ### Gameplay
 
-Fast-paced rng Endless levels, schiet door alle vijands en diepte raken
+Fast-paced, RNG Endless levels, beschoten door alle vijands en tot de diepte geraken
 
 ### Mechanics
 
