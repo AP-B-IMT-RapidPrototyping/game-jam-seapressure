@@ -62,7 +62,9 @@ void Game::Update() {
 
 	monsterManager->Update(player->GetPos());
 	if (!isGameOver){
-	player->Update();}
+	player->Update();
+	timer+= GetFrameTime();
+	}
 
 
 	if (monsterManager->isPlayerHit) {
@@ -83,6 +85,7 @@ void Game::Draw() const {
 
 		DrawText("Game Over!", 20, 20, 20, DARKBLUE);
 		DrawText(TextFormat("You managed to dive for %i meters", level*100), 20, 50, 20, MAROON);
+		DrawText(TextFormat("and survived %i seconds", static_cast<int>(timer)), 20, 80, 20, MAROON);
 	}
 
 	EndDrawing();

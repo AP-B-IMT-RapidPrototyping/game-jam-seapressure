@@ -38,6 +38,7 @@ namespace game {
         int height;
         int fps;
         int level{-1};
+        float timer{0.f};
         std::vector<Monster*> monsters;
         Player* player;
         MonsterManager* monsterManager;
