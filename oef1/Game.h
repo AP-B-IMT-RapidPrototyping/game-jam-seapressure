@@ -34,12 +34,18 @@ namespace game {
         int width;
         int height;
         int fps;
+        int level{1};
         std::vector<Monster*> monsters;
         Player* player;
         MonsterManager* monsterManager;
         inline static Texture2D tMonster;
         inline static Texture2D tPlayer;
         Color seaShade = {102, 191, 255, 255 };
+
+        int EnemyAmount() const {return 3+level;}
+
+
+
 
     };
 } // game
