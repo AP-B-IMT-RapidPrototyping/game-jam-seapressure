@@ -16,22 +16,18 @@ static_assert(__cplusplus >= 201703L, "C++17 required");
 #include "Pawn.h"
 namespace game{
 //-----------------------------------------------------
-// Monster Class									
+// Warning Class									
 //-----------------------------------------------------
-class Monster final: public Pawn
+class Warning final: public Pawn
 {
 public:
     using Pawn::Pawn;
 
     void Update();
-    void Draw() const;
-    bool isGonnaAttack{false};
-    bool isSpawning{true};
-
-
 private:
-    const float SpawnTime{1.f};
-    float spawnTimer{0.f};
+
+    const float Lifetime{1.f};
+    float timer{0.f};
 };
 
 }
