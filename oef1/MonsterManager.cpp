@@ -65,6 +65,7 @@ namespace game {
     void MonsterManager::SpawnMonsterBatch(int amount) {
         for (int i = 0; i < amount; ++i) {
             SpawnMonster();
+
         }
     }
 } // game

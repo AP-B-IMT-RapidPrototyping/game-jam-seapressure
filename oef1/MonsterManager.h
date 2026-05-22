@@ -37,6 +37,7 @@ namespace game {
         void SpawnMonster();
         void SpawnMonsterBatch(int amount);
 
+
     private:
         //-------------------------------------------------
         // Private member functions
