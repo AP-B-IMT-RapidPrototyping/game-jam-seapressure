@@ -57,9 +57,13 @@ namespace game {
                 monster->isGonnaAttack=false;
 
             }
+            if (monster->isSpawning) {
+
+            }
 
 
-            if (std::abs(monster->GetPos().x - playerPos.x) < 50.f &&
+            if (!monster->isSpawning &&
+                std::abs(monster->GetPos().x - playerPos.x) < 50.f &&
                 std::abs(monster->GetPos().y - playerPos.y) < 50.f) {
                 delete monster;
                 it = monsters.erase(it);
