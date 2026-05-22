@@ -23,11 +23,10 @@ class Warning final: public Pawn
 public:
     using Pawn::Pawn;
 
-    void Update();
-private:
-
     const float Lifetime{1.f};
     float timer{0.f};
+    void Update();
+    bool IsExpired() const;
 };
 
 }

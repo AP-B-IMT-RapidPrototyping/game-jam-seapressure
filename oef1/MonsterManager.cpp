@@ -6,7 +6,7 @@
 
 namespace game {
     MonsterManager::MonsterManager() {
-        tMonster = LoadTexture("src/enemy.png");
+        tMonster = LoadTexture("src/Enemy.png");
         tWarning = LoadTexture("src/warning.png");
         monsters.reserve(50);
         warnings.reserve(50);
@@ -28,8 +28,21 @@ namespace game {
     }
 
     void MonsterManager::Update(const Vector2 &playerPos) {
+        float dt = GetFrameTime();
         if (IsKeyPressed(KEY_S)) {
             SpawnMonster();
+        }
+        for (auto it = warnings.begin(); it != warnings.end();) {
+            Warning *warning = *it;
+            warning->Update();
+            if (warning->IsExpired()) {
+
+                delete warning;
+                it = warnings.erase(it);
+            } else {
+                ++it;
+            }
+
         }
 
 
@@ -59,6 +72,10 @@ namespace game {
     void MonsterManager::Draw() const {
         for (const Monster *monster: monsters) {
             monster->Draw();
+        }
+
+        for (const Warning *warning: warnings) {
+            warning->Draw();
         }
 
 
