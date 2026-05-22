@@ -24,6 +24,7 @@ namespace game {
 
         void Update();
         void Draw() const;
+        bool isGameOver=false;
         static bool ShouldClose();
 
     private:

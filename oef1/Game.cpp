@@ -34,44 +34,37 @@ Game::~Game() {
 
 void Game::Update() {
 
-	// if (IsKeyPressed(KEY_S)) {
-	// 	SpawnMonster();
-	// }
-	//
-	// for (auto it = monsters.begin(); it != monsters.end();) {
-	// 	Monster* monster = *it;
-	// 	monster->Update();
-	//
-	// 	if (std::abs(monster->GetPos().x - player->GetPos().x) < 50.f &&
-	// 		std::abs(monster->GetPos().y - player->GetPos().y) < 50.f) {
-	// 		delete monster;
-	// 		it = monsters.erase(it);
-	// 	} else {
-	// 		++it;
-	// 	}
-	// }
-	//
 	//Code here is written to allow the background to darken as the game progresses.
 	if (IsKeyDown(KEY_SPACE)) {
 		seaShade.r = std::max(seaShade.r -2, 0 ); // put in clamp to ensure the int wouldn't cycle back up to 255 when subtracting past 0
 		seaShade.g = std::max(seaShade.g -2, 0);
 		seaShade.b = std::max(seaShade.b -1, 0);
 	}
+
+
+
+
 	monsterManager->Update(player->GetPos());
 	player->Update();
+
+	if (monsterManager->isPlayerHit) {
+		isGameOver=true;
+	}
 }
 
 void Game::Draw() const {
 	BeginDrawing();
 	ClearBackground(seaShade);
-	///Potential if statement to use for color switching or darkening of background
-	 if (IsKeyDown(KEY_SPACE)) {
-	 }
-	// for (const Monster* monster : monsters) {
-	// 	monster->Draw();
-	// }
 	monsterManager->Draw();
 	player->Draw();
+
+
+	if (monsterManager->isPlayerHit) {
+
+
+		DrawText("Game Over!", 20, 20, 20, DARKBLUE);
+	}
+
 	EndDrawing();
 }
 

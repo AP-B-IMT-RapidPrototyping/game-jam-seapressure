@@ -28,6 +28,7 @@ namespace game {
     }
 
     void MonsterManager::Update(const Vector2 &playerPos) {
+        if (isPlayerHit) return;
         float dt = GetFrameTime();
         if (IsKeyPressed(KEY_S)) {
             SpawnMonster();
@@ -65,11 +66,15 @@ namespace game {
             if (!monster->isSpawning &&
                 std::abs(monster->GetPos().x - playerPos.x) < 50.f &&
                 std::abs(monster->GetPos().y - playerPos.y) < 50.f) {
-                delete monster;
-                it = monsters.erase(it);
-            } else {
-                ++it;
+                // // player hit
+                isPlayerHit=true;
+
+                return;
+
+                // delete monster;
+                // it = monsters.erase(it);
             }
+            ++it;
         }
     }
 

@@ -39,6 +39,7 @@ namespace game {
         void SpawnMonster();
         void SpawnMonsterBatch(int amount);
 
+        bool isPlayerHit{false};
 
     private:
         //-------------------------------------------------
