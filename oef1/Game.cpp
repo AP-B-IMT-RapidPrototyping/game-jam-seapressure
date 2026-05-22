@@ -50,10 +50,10 @@ void Game::Update() {
 	// 		++it;
 	// 	}
 	// }
+	//
+	//Code here is written to allow the background to darken as the game progresses.
 	if (IsKeyDown(KEY_SPACE)) {
-
-		seaShade.r = std::max(seaShade.r -2, 0 );
-		// seaShade.r = -2;
+		seaShade.r = std::max(seaShade.r -2, 0 ); // put in clamp to ensure the int wouldn't cycle back up to 255 when subtracting past 0
 		seaShade.g = std::max(seaShade.g -2, 0);
 		seaShade.b = std::max(seaShade.b -1, 0);
 	}
