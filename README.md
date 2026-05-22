@@ -15,9 +15,12 @@ Actie, Endless runner, 2D top-down shooter
 
 ## Concept Pitch
 
+Onze game heet Sea Pressure en het is een top-down shooter waar vanaf elke richting onder druk bent, in-game en in-lore.
+
 in 1-3 zinnen
 
 ## Gameplay Mechanics
+
 
 ### Game Flow
 
