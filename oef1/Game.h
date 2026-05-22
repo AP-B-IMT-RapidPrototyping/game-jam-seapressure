@@ -37,6 +37,8 @@ namespace game {
         MonsterManager* monsterManager;
         inline static Texture2D tMonster;
         inline static Texture2D tPlayer;
+        Color seaShade = {102, 191, 255, 255 };
+
     };
 } // game
 

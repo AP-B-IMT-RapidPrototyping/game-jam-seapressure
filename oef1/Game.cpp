@@ -50,14 +50,22 @@ void Game::Update() {
 	// 		++it;
 	// 	}
 	// }
+	if (IsKeyDown(KEY_SPACE)) {
+
+		seaShade.r = -2;
+		seaShade.g -=2;
+		seaShade.b -=1;
+	}
 	monsterManager->Update(player->GetPos());
 	player->Update();
 }
 
 void Game::Draw() const {
 	BeginDrawing();
-	ClearBackground(RAYWHITE);
-
+	ClearBackground(seaShade);
+	///Potential if statement to use for color switching or darkening of background
+	 if (IsKeyDown(KEY_SPACE)) {
+	 }
 	// for (const Monster* monster : monsters) {
 	// 	monster->Draw();
 	// }
