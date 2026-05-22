@@ -57,7 +57,7 @@ namespace game {
 
 	void Pawn::Draw() const {
 		if (texture->id != 0) {
-			DrawTextureV(*texture, position, WHITE);
+			DrawTextureEx(*texture, position, 0.f, 1.f, WHITE);
 		}
 	}
 
