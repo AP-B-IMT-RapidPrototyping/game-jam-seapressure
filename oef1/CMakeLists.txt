@@ -29,6 +29,8 @@ add_executable(${PROJECT_NAME}
         MonsterManager.cpp
         MonsterManager.h
         Singleton.h
+        Warning.h
+        Warning.cpp
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
