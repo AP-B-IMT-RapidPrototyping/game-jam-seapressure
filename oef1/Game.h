@@ -30,6 +30,7 @@ namespace game {
     private:
         // void SpawnMonster();
 
+
         int width;
         int height;
         int fps;

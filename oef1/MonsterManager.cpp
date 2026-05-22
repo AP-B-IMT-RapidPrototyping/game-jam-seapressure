@@ -91,8 +91,8 @@ namespace game {
         }
 
 
-        DrawText("Druk op S om een monster te spawnen", 20, 20, 20, DARKBLUE);
-        DrawText(TextFormat("Aantal monsters: %i", static_cast<int>(monsters.size())), 20, 50, 20, MAROON);
+        //DrawText("Druk op S om een monster te spawnen", 20, 20, 20, DARKBLUE);
+        //DrawText(TextFormat("Aantal monsters: %i", static_cast<int>(monsters.size())), 20, 50, 20, MAROON);
     }
 
     void MonsterManager::SpawnMonster() {

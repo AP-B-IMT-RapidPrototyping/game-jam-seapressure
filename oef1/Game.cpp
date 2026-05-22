@@ -5,7 +5,7 @@
 namespace game {
 
 Game::Game() : width(800), height(600), fps(60) {
-	InitWindow(width, height, "Monster Spawner");
+	InitWindow(width, height, "SeaPressure");
 	SetTargetFPS(fps);
 
 	// Load textures
@@ -27,7 +27,6 @@ Game::~Game() {
 	delete monsterManager;
 	delete player;
 	UnloadTexture(tPlayer);
-	// UnloadTexture(tMonster);
 
 	CloseWindow();
 }
