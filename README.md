@@ -22,7 +22,9 @@ Onze game heet Sea Pressure en het is een top-down shooter waar vanaf elke richt
 
 ### Game Flow
 
-gameplay loop
+Level begint: spawn alle objecten.
+Als alle vijanden gedood zijn: volgende level.
+Geraakt door vijanden of aanval: game over.
 
 ### Game Feel
 
