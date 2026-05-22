@@ -135,4 +135,10 @@ namespace game {
 
         isLevelCleared=false;
     }
+
+    void MonsterManager::StartNewGame(int enemyAmount) {
+        isPlayerHit=false;
+
+        StartNewLevel(enemyAmount + 1);
+    }
 } // game

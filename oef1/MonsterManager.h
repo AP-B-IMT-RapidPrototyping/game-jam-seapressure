@@ -40,6 +40,8 @@ namespace game {
         void SpawnMonsterBatch(int amount);
 
         void StartNewLevel(int enemyAmount);
+        void StartNewGame(int enemyAmount);
+
 
         bool isPlayerHit{false};
         bool isLevelCleared{true};

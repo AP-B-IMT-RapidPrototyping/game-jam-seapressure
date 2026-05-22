@@ -28,4 +28,8 @@ namespace game
         position.y += direction.y * speed * dt;
         ClampPos();
     }
+
+    void Player::SetPos(Vector2 v) {
+        position=v;
+    }
 }

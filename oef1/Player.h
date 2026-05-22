@@ -24,6 +24,7 @@ public:
     using Pawn::Pawn;
 
     void Update();
+    void SetPos(Vector2 v);
 };
 
 }

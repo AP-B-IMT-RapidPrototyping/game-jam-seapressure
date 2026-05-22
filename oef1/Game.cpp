@@ -45,7 +45,21 @@ Game::~Game() {
 
 void Game::Update() {
 
+if (isGameOver) {
+	if (IsKeyPressed(KEY_R)) {
+		level=1;
+		monsterManager->StartNewGame(level);
+		gate->switchPos();
 
+
+		const int X{GetScreenWidth() - tMonster.width};
+		const int Y{GetScreenHeight() - tMonster.height};
+		player->SetPos({static_cast<float>(X/2),
+		static_cast<float>(Y/2)});
+
+		isGameOver=false;
+	}
+}
 
 	if (monsterManager->isLevelCleared || isLvcleared ) {
 		++level;
@@ -83,7 +97,7 @@ void Game::Draw() const {
 	if (monsterManager->isPlayerHit) {
 
 
-		DrawText("Game Over!", 20, 20, 20, DARKBLUE);
+		DrawText("Game Over! Press R to restart", 20, 20, 20, DARKBLUE);
 		DrawText(TextFormat("You managed to dive for %i meters", level*100), 20, 50, 20, MAROON);
 		DrawText(TextFormat("and survived %i seconds", static_cast<int>(timer)), 20, 80, 20, MAROON);
 	}
