@@ -31,6 +31,8 @@ add_executable(${PROJECT_NAME}
         Singleton.h
         Warning.h
         Warning.cpp
+        Gate.cpp
+        Gate.h
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
