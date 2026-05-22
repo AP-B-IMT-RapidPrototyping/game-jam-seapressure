@@ -39,7 +39,12 @@ namespace game {
         void SpawnMonster();
         void SpawnMonsterBatch(int amount);
 
+        void StartNewLevel(int enemyAmount);
+
         bool isPlayerHit{false};
+        bool isLevelCleared{true};
+
+
 
     private:
         //-------------------------------------------------

@@ -15,7 +15,14 @@ Game::Game() : width(800), height(600), fps(60) {
 	// Load pawns
 
 	//monsters.reserve(100);
-	player=new Player(tPlayer,{},200);
+
+	const int X{GetScreenWidth() - tMonster.width};
+	const int Y{GetScreenHeight() - tMonster.height};
+	player=new Player(
+		tPlayer,
+		{static_cast<float>(X/2),
+		static_cast<float>(Y/2)},
+		200);
 	monsterManager=new MonsterManager();
 }
 
@@ -40,6 +47,10 @@ void Game::Update() {
 		seaShade.b = std::max(seaShade.b -1, 0);
 	}
 
+	if (monsterManager->isLevelCleared) {
+		monsterManager->StartNewLevel(++level);
+
+	}
 
 
 

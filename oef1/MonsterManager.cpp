@@ -28,7 +28,13 @@ namespace game {
     }
 
     void MonsterManager::Update(const Vector2 &playerPos) {
+
+        if (IsKeyPressed(KEY_P)) {
+            isLevelCleared=true;
+        }
+
         if (isPlayerHit) return;
+
         float dt = GetFrameTime();
         if (IsKeyPressed(KEY_S)) {
             SpawnMonster();
@@ -64,8 +70,8 @@ namespace game {
 
 
             if (!monster->isSpawning &&
-                std::abs(monster->GetPos().x - playerPos.x) < 50.f &&
-                std::abs(monster->GetPos().y - playerPos.y) < 50.f) {
+                std::abs(monster->GetPos().x - playerPos.x) < 30.f &&
+                std::abs(monster->GetPos().y - playerPos.y) < 30.f) {
                 // // player hit
                 isPlayerHit=true;
 
@@ -112,7 +118,25 @@ namespace game {
     void MonsterManager::SpawnMonsterBatch(int amount) {
         for (int i = 0; i < amount; ++i) {
             SpawnMonster();
-
         }
+    }
+
+    void MonsterManager::StartNewLevel(int enemyAmount) {
+        // remove everything
+        for (Monster *monster: monsters) {
+            delete monster;
+        }
+
+        monsters.clear();
+        for (Warning *warning: warnings) {
+            delete warning;
+        }
+
+        warnings.clear();
+
+        // Add in enemies
+        SpawnMonsterBatch(enemyAmount);
+
+        isLevelCleared=false;
     }
 } // game
