@@ -82,7 +82,7 @@ void Game::Draw() const {
 
 
 		DrawText("Game Over!", 20, 20, 20, DARKBLUE);
-		DrawText(TextFormat("You managed to dive for %i levels", level), 20, 50, 20, MAROON);
+		DrawText(TextFormat("You managed to dive for %i meters", level*100), 20, 50, 20, MAROON);
 	}
 
 	EndDrawing();
