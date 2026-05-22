@@ -9,7 +9,7 @@
 //---------------------------
 namespace game
 {
-    void Monster::Update() {
+    void Monster::Update(const Vector2 &playerPos) {
         const float dt = GetFrameTime();
         if (isSpawning) {
             spawnTimer+=dt;
@@ -19,15 +19,8 @@ namespace game
             return;
         }
 
-        RandomMovement();
+        MoveTowards(playerPos);
         ClampPos();
     }
 
-    void Monster::Draw() const {
-        if (isSpawning) return;
-        if (texture->id != 0) {
-            DrawTextureV(*texture, position, WHITE);
-        }
-
-    }
 }

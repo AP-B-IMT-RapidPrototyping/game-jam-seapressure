@@ -52,6 +52,7 @@ protected:
 
 
 	void RandomMovement();
+	void MoveTowards(const Vector2 &Pos);
 	void ClampPos();
 
 	//-------------------------------------------------

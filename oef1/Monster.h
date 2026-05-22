@@ -24,9 +24,10 @@ public:
     using Pawn::Pawn;
 
     void Update();
-    void Draw() const;
+    void Update(const Vector2 &playerPos);
     bool isGonnaAttack{false};
     bool isSpawning{true};
+
 
 
 private:

@@ -64,5 +64,21 @@ namespace game {
 	Vector2 Pawn::GetPos() const {
 		return position;
 	}
+
+	void Pawn::MoveTowards(const Vector2 &Pos) {
+
+		const float dt = GetFrameTime();
+		const float randomX = static_cast<float>(GetRandomValue(-10, 10)) / 100.0f;
+		const float randomY = static_cast<float>(GetRandomValue(-10, 10)) / 100.0f;
+
+		velocity.x = Pos.x-position.x;
+		velocity.y = Pos.y-position.y;
+
+
+		velocity.x = std::clamp(velocity.x, -1.0f, 1.0f);
+		velocity.y = std::clamp(velocity.y, -1.0f, 1.0f);
+		position.x += velocity.x * speed * dt;
+		position.y += velocity.y * speed * dt;
+	}
 }
 

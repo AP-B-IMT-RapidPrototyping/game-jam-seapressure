@@ -49,7 +49,7 @@ namespace game {
         for (auto it = monsters.begin(); it != monsters.end();) {
             Monster *monster = *it;
 
-            monster->Update();
+            monster->Update(playerPos);
             if (monster->isGonnaAttack) {
                 //spawn warning
 
@@ -75,7 +75,10 @@ namespace game {
 
     void MonsterManager::Draw() const {
         for (const Monster *monster: monsters) {
+            if (!monster->isSpawning){
             monster->Draw();
+            }
+
         }
 
         for (const Warning *warning: warnings) {
