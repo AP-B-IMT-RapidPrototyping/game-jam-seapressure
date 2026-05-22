@@ -8,9 +8,10 @@ Under Sea Pressure
 
 ## Summary
 
-Spel als een submarine tijdens (fictional) WO2 invasie van Japan.
+Speelt als een submarine tijdens (fictional) WO2 invasie van Japan. Je doel is om aan de bodem van de pacifische Ocean te geraken in diep onderzee met behulp van een nucleaire torpedo de tectonische platen van japan te beschadigen om een vulkaanuitbarsting te creeëren. Je zal door de diepte van de oceaan met talloze elementen van de extreme Japanse weerstand moeten strijden, van andere Japanase onderzeetuigen tot de samendrukking van all het water rondom je.
 
 ## Genre
+Actie, Endless runner, 2D top-down shooter
 
 ## Concept Pitch
 
