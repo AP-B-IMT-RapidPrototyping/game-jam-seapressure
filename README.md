@@ -12,29 +12,28 @@ Speelt als een submarine tijdens (fictional) WO2 invasie van Japan. Je doel is o
 
 ## Genre
 
-Actie, Endless runner, 2D top-down shooter
+Actie, Endless runner, 2D top-down camera
 
 ## Concept Pitch
 
-Onze game heet Sea Pressure en het is een top-down shooter waar vanaf elke richting onder druk bent, in-game en in-lore.
+Onze game heet Sea Pressure en het is een top-down game waar vanaf elke richting onder druk bent, in-game en in-lore.
 
 ## Gameplay Mechanics
 
 ### Game Flow
 
 Level begint: spawn alle objecten.
-Als alle vijanden dood zijn: transitie volgende level.
-Geraakt door vijanden of aanval: game over.
+Als downstream wordt geraakt: transitie volgende level.
+Geraakt door vijanden: game over.
 
 ### Game Feel
 
-Player ziet waarschuwing voor vijands schijnen/aanvallen.
+Player ziet waarschuwing voor vijands schijnen.
 
 ### Gameplay
 
-Fast-paced, RNG Endless levels, beschoten door alle vijands en tot de diepte geraken
+Fast-paced, RNG Endless levels, achtervolgd door alle vijands en tot de diepte geraken
 
 ### Mechanics
 
-Physics based movement
-kleur wordt donker
+kleur wordt donker als indicatie van de diepte
