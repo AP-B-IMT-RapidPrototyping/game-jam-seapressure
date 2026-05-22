@@ -24,6 +24,14 @@ public:
     using Pawn::Pawn;
 
     void Update();
+    void Draw() const;
+    bool isGonnaAttack{false};
+    bool isSpawning{true};
+
+
+private:
+    const float SpawnTime{1.f};
+    float spawnTimer{0.f};
 };
 
 }

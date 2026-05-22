@@ -13,6 +13,8 @@ static_assert(__cplusplus >= 201703L, "C++17 required");
 //-----------------------------------------------------
 
 #include "Monster.h"
+#include "Warning.h"
+
 #include "Singleton.h"
 #include <vector>
 
@@ -49,6 +51,9 @@ namespace game {
         friend class Singleton<MonsterManager>;
         inline static Texture2D tMonster;
 
+        inline static Texture2D tWarning;
+
         std::vector<Monster *> monsters;
+        std::vector<Warning *> warnings;
     };
 }

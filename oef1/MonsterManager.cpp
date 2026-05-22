@@ -7,7 +7,9 @@
 namespace game {
     MonsterManager::MonsterManager() {
         tMonster = LoadTexture("src/enemy.png");
+        tWarning = LoadTexture("src/warning.png");
         monsters.reserve(50);
+        warnings.reserve(50);
     }
 
     MonsterManager::~MonsterManager() {
@@ -16,7 +18,13 @@ namespace game {
         }
 
         monsters.clear();
+        for (Warning *warning: warnings) {
+            delete warning;
+        }
+
+        warnings.clear();
         UnloadTexture(tMonster);
+        UnloadTexture(tWarning);
     }
 
     void MonsterManager::Update(const Vector2 &playerPos) {
@@ -27,7 +35,16 @@ namespace game {
 
         for (auto it = monsters.begin(); it != monsters.end();) {
             Monster *monster = *it;
+
             monster->Update();
+            if (monster->isGonnaAttack) {
+                //spawn warning
+
+                // turn it off
+                monster->isGonnaAttack=false;
+
+            }
+
 
             if (std::abs(monster->GetPos().x - playerPos.x) < 50.f &&
                 std::abs(monster->GetPos().y - playerPos.y) < 50.f) {
@@ -60,6 +77,7 @@ namespace game {
         };
 
         monsters.push_back(new Monster(tMonster, spawnPos));
+        warnings.push_back(new Warning(tWarning, spawnPos));
     }
 
     void MonsterManager::SpawnMonsterBatch(int amount) {
