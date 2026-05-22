@@ -11,16 +11,14 @@ Under Sea Pressure
 Speelt als een submarine tijdens (fictional) WO2 invasie van Japan. Je doel is om aan de bodem van de pacifische Ocean te geraken in diep onderzee met behulp van een nucleaire torpedo de tectonische platen van japan te beschadigen om een vulkaanuitbarsting te creeëren. Je zal door de diepte van de oceaan met talloze elementen van de extreme Japanse weerstand moeten strijden, van andere Japanase onderzeetuigen tot de samendrukking van all het water rondom je.
 
 ## Genre
+
 Actie, Endless runner, 2D top-down shooter
 
 ## Concept Pitch
 
 Onze game heet Sea Pressure en het is een top-down shooter waar vanaf elke richting onder druk bent, in-game en in-lore.
 
-in 1-3 zinnen
-
 ## Gameplay Mechanics
-
 
 ### Game Flow
 
@@ -28,10 +26,13 @@ gameplay loop
 
 ### Game Feel
 
+Player ziet waarschuwing voordat vijands schijnen/aanvallen.
+
 ### Gameplay
 
-uitdagingen/puzzel structuur, doelen, play flow
+Fast-paced rng Endless levels, schiet door alle vijands en diepte raken
 
 ### Mechanics
 
-Impliciete/expliciete spelregels, physics/actions/economy/etc.
+Physics based movement
+kleur wordt donker
