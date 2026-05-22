@@ -52,9 +52,10 @@ void Game::Update() {
 	// }
 	if (IsKeyDown(KEY_SPACE)) {
 
-		seaShade.r = -2;
-		seaShade.g -=2;
-		seaShade.b -=1;
+		seaShade.r = std::max(seaShade.r -2, 0 );
+		// seaShade.r = -2;
+		seaShade.g = std::max(seaShade.g -2, 0);
+		seaShade.b = std::max(seaShade.b -1, 0);
 	}
 	monsterManager->Update(player->GetPos());
 	player->Update();
