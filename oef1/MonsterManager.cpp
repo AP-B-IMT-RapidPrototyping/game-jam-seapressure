@@ -61,4 +61,10 @@ namespace game {
 
         monsters.push_back(new Monster(tMonster, spawnPos));
     }
+
+    void MonsterManager::SpawnMonsterBatch(int amount) {
+        for (int i = 0; i < amount; ++i) {
+            SpawnMonster();
+        }
+    }
 } // game

@@ -35,6 +35,7 @@ namespace game {
         void Draw() const;
 
         void SpawnMonster();
+        void SpawnMonsterBatch(int amount);
 
     private:
         //-------------------------------------------------
