@@ -1,15 +1,18 @@
 //
 // Created by marsd on 13/03/2026.
 //
+#pragma once
 
 #ifndef OEF1_GAME_H
 #define OEF1_GAME_H
 
+#include <memory>
 #include <vector>
 
 #include "Monster.h"
 #include "Player.h"
 #include "MonsterManager.h"
+#include "Gate.h"
 
 namespace game {
     class Game final{
@@ -34,15 +37,20 @@ namespace game {
         int width;
         int height;
         int fps;
-        int level{1};
+        int level{-1};
         std::vector<Monster*> monsters;
         Player* player;
         MonsterManager* monsterManager;
         inline static Texture2D tMonster;
         inline static Texture2D tPlayer;
-        Color seaShade = {102, 191, 255, 255 };
+        Color bgc = {102, 191, 255, 255 };
+        Color bgcNext() const;
+        Color bgcGate() const;
 
         int EnemyAmount() const {return 3+level;}
+        Gate* gate;
+
+        bool isLvcleared{false};
 
 
 

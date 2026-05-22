@@ -64,10 +64,6 @@ namespace game {
                 monster->isGonnaAttack=false;
 
             }
-            if (monster->isSpawning) {
-
-            }
-
 
             if (!monster->isSpawning &&
                 std::abs(monster->GetPos().x - playerPos.x) < 30.f &&

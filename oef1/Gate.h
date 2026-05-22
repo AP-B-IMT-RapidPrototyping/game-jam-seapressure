@@ -23,11 +23,10 @@ namespace game{
     public:
         using Pawn::Pawn;
 
-        const float Lifetime{1.f};
-        float timer{0.f};
-        void Update();
-        bool IsExpired() const;
-
+        void switchPos();
+        void Draw(const Color& outer) const;
+    private:
+        const float Radius{50.f};
     };
 
 }

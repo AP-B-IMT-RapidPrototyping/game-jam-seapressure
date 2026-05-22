@@ -24,6 +24,10 @@ Game::Game() : width(800), height(600), fps(60) {
 		static_cast<float>(Y/2)},
 		200);
 	monsterManager=new MonsterManager();
+	gate=new Gate(		tPlayer,
+		{static_cast<float>(X/2),
+		static_cast<float>(Y/2)},
+		200);
 }
 
 Game::~Game() {
@@ -33,6 +37,7 @@ Game::~Game() {
 	// monsters.clear();
 	delete monsterManager;
 	delete player;
+	delete gate;
 	UnloadTexture(tPlayer);
 
 	CloseWindow();
@@ -40,22 +45,25 @@ Game::~Game() {
 
 void Game::Update() {
 
-	//Code here is written to allow the background to darken as the game progresses.
-	if (IsKeyDown(KEY_SPACE)) {
-		seaShade.r = std::max(seaShade.r -2, 0 ); // put in clamp to ensure the int wouldn't cycle back up to 255 when subtracting past 0
-		seaShade.g = std::max(seaShade.g -2, 0);
-		seaShade.b = std::max(seaShade.b -1, 0);
+
+
+	if (monsterManager->isLevelCleared || isLvcleared ) {
+		++level;
+		monsterManager->StartNewLevel(level + 2);
+		bgc=bgcNext();
+		gate->switchPos();
+		isLvcleared=false;
 	}
 
-	if (monsterManager->isLevelCleared) {
-		monsterManager->StartNewLevel(++level);
-
-	}
-
-
+	if (std::abs(player->GetPos().x - gate->GetPos().x) < 40.f  &&
+		std::abs(player->GetPos().y - gate->GetPos().y) < 40.f  ) {
+		isLvcleared=true;
+		}
 
 	monsterManager->Update(player->GetPos());
-	player->Update();
+	if (!isGameOver){
+	player->Update();}
+
 
 	if (monsterManager->isPlayerHit) {
 		isGameOver=true;
@@ -64,7 +72,8 @@ void Game::Update() {
 
 void Game::Draw() const {
 	BeginDrawing();
-	ClearBackground(seaShade);
+	ClearBackground(bgc);
+	gate->Draw(bgc);
 	monsterManager->Draw();
 	player->Draw();
 
@@ -73,6 +82,7 @@ void Game::Draw() const {
 
 
 		DrawText("Game Over!", 20, 20, 20, DARKBLUE);
+		DrawText(TextFormat("You managed to dive for %i levels", level), 20, 50, 20, MAROON);
 	}
 
 	EndDrawing();
@@ -82,7 +92,28 @@ bool Game::ShouldClose() {
 	return WindowShouldClose();
 }
 
-// void Game::SpawnMonster() {
+
+	Color Game::bgcNext() const {
+
+	return Color {
+		static_cast<unsigned char>(std::max(bgc.r -5, 0 )), // put in clamp to ensure the int wouldn't cycle back up to 255 when subtracting past 0
+		static_cast<unsigned char>(std::max(bgc.g -5, 0)),
+		static_cast<unsigned char>(std::max(bgc.b -2, 0))
+	};
+
+
+}
+
+	Color Game::bgcGate() const {
+	return Color {
+		static_cast<unsigned char>(std::max(bgc.r -100, 0 )), // put in clamp to ensure the int wouldn't cycle back up to 255 when subtracting past 0
+		static_cast<unsigned char>(std::max(bgc.g -100, 0)),
+		static_cast<unsigned char>(std::max(bgc.b -100, 0))
+	};
+
+	}
+
+	// void Game::SpawnMonster() {
 // 	Vector2 spawnPos = {
 // 		static_cast<float>(GetRandomValue(0, width - 1)),
 // 		static_cast<float>(GetRandomValue(0, height - 1))
